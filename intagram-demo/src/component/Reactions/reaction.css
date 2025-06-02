@@ -1,0 +1,13 @@
+.p-reactions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.p-reactions-action {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: var(--space-12px);
+}

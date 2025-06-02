@@ -1,0 +1,27 @@
+.p-userProfile-s {
+    height: 32px;
+    width: 32px;
+    border-radius: 50% ;
+}
+
+.p-userProfile-m {
+    height: 32px;
+    width: 32px;
+    border-radius: 50% ;
+}
+
+.p-userProfile-l {
+    height: 74px;
+    width: 74px;
+    border-radius: 50% ;
+}
+
+.close-friend {
+    padding: var(--space-2px);
+    border: 0.1rem solid green;
+   
+}
+
+.other-friends {
+    border: 0.1rem solid red;
+}

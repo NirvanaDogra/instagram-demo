@@ -1,0 +1,12 @@
+.p-header-profileOwner {
+   margin: var(--space-8px);
+}
+
+.p-header-profileOwner-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: var(--space-4px);
+    align-items: center;
+}
