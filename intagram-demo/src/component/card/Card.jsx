@@ -1,18 +1,28 @@
-import React from "react"
-import Carousel from '../Carousel/Carousel.jsx';
-import Header from '../Header/Header.jsx';
-import Reactions from '../Reactions/Reactions.jsx';
-import "./card.css"
+import React from "react";
+import { formattedNumbers } from "../../util/NumberUtil.js";
+import Carousel from '../carousel/Carousel.jsx';
+import Header from '../header/Header.jsx';
+import Reactions from '../reactions/Reactions.jsx';
+import "./card.css";
 
-const Card = ({ }) => {
-    const list = ["https://placehold.co/600x400", "https://placehold.co/650x400", "https://placehold.co/610x400", "https://placehold.co/603x400"]
+
+const defaultItemTemplate = (value) => {
+    return <img src={value} alt="carousel item" />;
+};
+
+const Card = ({ post }) => {
+    const { title, isVerified, time, postLocation } = post.user
+    const { imgUrls, hasLikes, noOfLikes, message } = post.post
     return (
-        <div className="p-card">
-            <Header />
-            <Carousel list={list} intialValue={0} />
-            <Reactions />
-            <p>11, 944 likes</p>
-        </div>
+        <article className="p-card">
+            <Header title={title} isVerified={isVerified} time={time} location={postLocation} />
+            <Carousel list={imgUrls} intialValue={0} itemTemplate={defaultItemTemplate} />
+            <Reactions hasLiked={hasLikes} />
+            <section>
+                <p><strong>{formattedNumbers(noOfLikes)} likes</strong></p>
+                <p>{message}</p>
+            </section>
+        </article>
     );
 }
 

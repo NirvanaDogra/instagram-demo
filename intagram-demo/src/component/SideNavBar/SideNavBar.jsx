@@ -1,10 +1,10 @@
 import React from "react";
 import "./sideNavBar.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const NavItem = ({ icon, item, onClick, route }) => {
+const NavItem = ({ icon, item, onClick, route, isSelected }) => {
   return (
-    <div className="p-sidebar-navItem" onClick={() => onClick(route)}>
+    <div className={`p-sidebar-navItem ${isSelected ? "selected":""}`} onClick={() => onClick(route)}>
       <span>{icon}</span>
       <span>{item}</span>
     </div>
@@ -13,6 +13,7 @@ const NavItem = ({ icon, item, onClick, route }) => {
 
 const SideNavBar = ({ items }) => {
   const navigate = useNavigate(); 
+  const location = useLocation();
   const handleClick = (route) => {
     navigate(route); 
   };
@@ -26,6 +27,7 @@ const SideNavBar = ({ items }) => {
           item={it.item}
           route={it.route}    
           onClick={handleClick}
+          isSelected={location.pathname.startsWith(it.route) && items!==""}
         />
       ))}
     </nav>

@@ -1,0 +1,9 @@
+.p-user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.p-user-username {
+    padding-right: var(--space-4px);
+}

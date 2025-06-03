@@ -1,4 +1,4 @@
-import Carousel from "../Carousel/Carousel";
+import Carousel from "../carousel/Carousel";
 import UserProfile from "../UserProfile/UserProfile";
 import "./status.css";
 
@@ -9,7 +9,7 @@ const statusItemTemplate = (item) => {
     </div>
 };
 
-const Status = ({ }) => {
+const StatusBar = ({ }) => {
     const list = [
         "abc1",
         "abc2",
@@ -28,4 +28,4 @@ const Status = ({ }) => {
 
 }
 
-export default Status
+export default StatusBar

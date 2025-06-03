@@ -1,4 +1,5 @@
 .p-reactions {
+    padding: var(--space-12px) 0px var(--space-12px) 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

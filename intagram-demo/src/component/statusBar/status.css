@@ -1,11 +1,8 @@
 .p-status {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: var(--space-20px);
 }
 
 .p-status-handel {
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;

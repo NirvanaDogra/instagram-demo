@@ -1,5 +1,5 @@
-import React from "react";
-import Heart from "../Heart/Heart";
+import React, { useState } from "react";
+import Heart from "./heart/Heart.jsx";
 import "./reaction.css";
 
 const Message = ({ handleClick }) => {
@@ -21,15 +21,15 @@ const BookMark = ({ handleClick }) => {
 }
 
 const Reactions = ({ hasLiked = false }) => {
-
-    return <div className="p-reactions">
+   
+    return <section className="p-reactions">
         <div className="p-reactions-action">
-            <Heart handleClick={() => alert("heart")} isActive={true} />
+            <Heart isActive={hasLiked} />
             <Message handleClick={() => alert("meesgae")} />
             <Share handleClick={() => alert("share")} />
         </div>
         <BookMark handleClick={() => alert("bookmark")} />
-    </div>
+    </section>
 };
 
 export default Reactions;
