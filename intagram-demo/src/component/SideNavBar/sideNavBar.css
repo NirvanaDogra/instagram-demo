@@ -2,10 +2,12 @@
     position: fixed;
     top: 0;
     left: 0;
+    height: 100vh;
     padding: var(--space-16px);
     border-right: 0.1rem solid var(--shadow-color);
     width: 245px;
 }
+
 .p-sidebar-navItem {
     display: flex;
     border-radius: var(--space-12px);
@@ -16,6 +18,20 @@
     margin-top: var(--space-2px);
     margin-bottom: var(--space-2px);
     cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    .p-sidebar {
+        width: 40px;
+    }
+    .p-sidebar-navItem:first-child {
+        display: none;
+    }
+
+    .p-sidebar-navItem > span:last-child{
+        display: none;
+    }
 }
 
 .p-sidebar-navItem.selected {

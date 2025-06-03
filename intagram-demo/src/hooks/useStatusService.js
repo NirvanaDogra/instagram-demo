@@ -18,19 +18,22 @@ const mapPosts = ({ posts }) => {
     })
 }
 
-const useStatusService = () => {
+const useStatusService = (pageNumber = 1) => {
     const [posts, setPost] = useState([])
     const [error, setError] = useState()
-
+    const [loading, setLoading] = useState(true)
+    
     useEffect(() => {
-        StatusService.getHomeSatatus().then(data => {
+        StatusService.getHomeSatatus(pageNumber).then(data => {
             setPost(mapPosts(data))
+            setLoading(false)
         }).catch(error => {
+            setLoading(false)
             setError(error.message)
         });
-    }, [])
+    }, [pageNumber])
 
-    return [posts, error]
+    return [posts, error, loading]
 }
 
 export default useStatusService;

@@ -7,7 +7,7 @@ import "./card.css";
 
 
 const defaultItemTemplate = (value) => {
-    return <img src={value} alt="carousel item" />;
+    return <img src={value} alt="carousel item" key={value}/>;
 };
 
 const Card = ({ post }) => {

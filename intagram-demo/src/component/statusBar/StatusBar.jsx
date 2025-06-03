@@ -3,7 +3,7 @@ import UserProfile from "../UserProfile/UserProfile";
 import "./status.css";
 
 const statusItemTemplate = (item) => {
-    return <div className="p-status-handel">
+    return <div className="p-status-handel" key={item}>
         <UserProfile size="l" />
         <p>{item}</p>
     </div>

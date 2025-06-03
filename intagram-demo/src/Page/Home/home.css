@@ -1,0 +1,12 @@
+.p-home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 245px;
+}
+
+@media (max-width: 768px) {
+    .p-home {
+        margin-left: 70px;
+    }
+}
