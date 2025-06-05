@@ -1,20 +1,25 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../../component/card/Card";
 import StatusBar from "../../component/statusBar/StatusBar";
-import useStatusService from "../../hooks/useStatusService";
 import useShouldUpdate from "../../hooks/useShouldUpdate";
 import "./home.css"
+import useFetch from "../../hooks/useFetch";
+const ENDPOINT = "posts";
 
 const Home = () => {
-    const [pageNumber, setPageNumber] = useState(1);
+    const [query, setQuery] = useState({limit: 2, skip: 0});
     const [loadedPosts, setLoadedPosts] = useState([]);
-    const [posts, error, loading] = useStatusService(pageNumber);
+    const [posts, error, loading] = useFetch(ENDPOINT, { method:'GET', query: query });
     const [isInView, finalElRef] = useShouldUpdate()
 
     useEffect(() => {
         if (isInView) {
-            setPageNumber(prev => prev + 1);
+            setQuery(pre => ({
+                ...pre,
+                skip: pre.skip + pre.limit,
+            }));
         }
+        console.log(query)
     }, [isInView])
 
     useEffect(() => {

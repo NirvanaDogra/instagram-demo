@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ApiConfig from "../config/ApiConfig";
 import StatusService from "../service/StatusService";
 
 const mapPosts = ({ posts }) => {
@@ -18,22 +19,22 @@ const mapPosts = ({ posts }) => {
     })
 }
 
-const useStatusService = (pageNumber = 1) => {
+const useFetch = (endpoint, { method = "GET", headers = {}, body = null, query = null } = {}) => {
     const [posts, setPost] = useState([])
     const [error, setError] = useState()
     const [loading, setLoading] = useState(true)
-    
+
     useEffect(() => {
-        StatusService.getHomeSatatus(pageNumber).then(data => {
+        ApiConfig(endpoint, {method, headers, body, query}).then(data => {
             setPost(mapPosts(data))
             setLoading(false)
         }).catch(error => {
             setLoading(false)
             setError(error.message)
         });
-    }, [pageNumber])
+    }, [endpoint, method, JSON.stringify(headers), JSON.stringify(body), JSON.stringify(query)])
 
     return [posts, error, loading]
 }
 
-export default useStatusService;
+export default useFetch;
